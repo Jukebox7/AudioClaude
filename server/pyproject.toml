@@ -1,0 +1,32 @@
+[project]
+name = "audioclaude"
+version = "0.1.0"
+description = "Interface vocale distante iPhone -> Mac pour Claude Code"
+requires-python = ">=3.12"
+dependencies = [
+    "moshi>=0.2.11",
+    "moshi_mlx>=0.2.12",
+    "rustymimi",
+    "sphn",
+    "sounddevice",
+    "websockets>=13.0",
+    "torch",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
